@@ -1,5 +1,3 @@
-import os
-from jinja2 import Template
 from jinja2 import FileSystemLoader
 from jinja2.environment import Environment
 

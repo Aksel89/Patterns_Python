@@ -1,18 +1,16 @@
 from wsgiref.simple_server import make_server
 
 from framework.main import AppFramework
-from urls import routes, fronts
+from urls import routes
 
-application = AppFramework(routes, fronts)
+application = AppFramework(routes)
 app_ip = '127.0.0.1'
 app_port = int(input('На каком порту запустить сервер?>>> '))
 
 
-def server_run():
-    with make_server(app_ip, app_port, application) as httpd:
-        print(f'Сервер запущен по адресу: {app_ip}:{app_port}')
-        httpd.serve_forever()
+with make_server(app_ip, app_port, application) as httpd:
+    print(f'Сервер запущен по адресу: {app_ip}:{app_port}')
+    httpd.serve_forever()
 
 
-if __name__ == '__main__':
-    server_run()
+

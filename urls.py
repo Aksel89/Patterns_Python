@@ -1,14 +1,8 @@
-from views import Index, About
+from views import Index, About, Contacts
 
 
 routes = {
     '/': Index(),
     '/about/': About(),
+    '/contacts/': Contacts(),
 }
-
-
-def key_front(request):
-    request['key'] = 'key'
-
-
-fronts = [key_front]
