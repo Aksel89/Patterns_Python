@@ -1,40 +1,17 @@
-class GetRequest:
+from framework.input_data import ParseInputData
 
-    @staticmethod
-    def parser_input_data(data: str):
-        query_param = {}
-        if data:
-            params = data.split('&')
-            for item in params:
-                k, v = item.split('=')
-                if query_param.get(k):
-                    query_param[k].append(v)
-                else:
-                    query_param[k] = [v]
-        return query_param
+
+class GetRequest:
 
     @staticmethod
     def get_request_params(environ):
         query_string = environ['QUERY_STRING']
         print(query_string)
-        request_params = GetRequest.parser_input_data(query_string)
+        request_params = ParseInputData.parser_data(query_string)
         return request_params
 
 
 class PostRequest:
-
-    @staticmethod
-    def parse_input_data(data: str):
-        query_param = {}
-        if data:
-            params = data.split('&')
-            for item in params:
-                k, v = item.split('=')
-                if query_param.get(k):
-                    query_param[k].append(v)
-                else:
-                    query_param[k] = [v]
-        return query_param
 
     @staticmethod
     def get_wsgi_input_data(env) -> bytes:
@@ -49,7 +26,7 @@ class PostRequest:
         result = {}
         if data:
             data_str = data.decode(encoding='utf-8')
-            result = self.parse_input_data(data_str)
+            result = ParseInputData.parser_data(data_str)
         return result
 
     def get_request_params(self, environ):
@@ -57,3 +34,8 @@ class PostRequest:
         data = self.get_wsgi_input_data(environ)
         data = self.parse_wsgi_input_data(data)
         return data
+
+
+class PageNotFound404:
+    def __call__(self, request):
+        return '404', '404 PAGE NOT FOUND'

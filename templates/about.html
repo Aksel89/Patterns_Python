@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>О проекте</title>
-</head>
-<body>
-<h1>Здесь будет описание))</h1>
-<h3>
-    <a href="/">На главную</a>
-</h3>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}
+    О проекте
+{% endblock %}
+{% block style %}
+
+{% endblock %}
+{% block menu %}
+    {% include "/includes/inc-menu.html" %}
+{% endblock %}
+{% block body %}
+    {% include "/includes/inc-about.html" %}
+{% endblock %}
+{% block footer %}
+    {% include "/includes/inc-footer.html" %}
+{% endblock %}

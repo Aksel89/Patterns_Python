@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная страница</title>
-</head>
-<body>
-<h1>Контент на подходе</h1>
-<h3>
-    <a href="about">О проекте</a>
-</h3><h3>
-    <a href="contacts">Контакты</a>
-</h3>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}
+    Главная страница
+{% endblock %}
+{% block style %}
+
+{% endblock %}
+{% block menu %}
+    {% include "/includes/inc-menu.html" %}
+{% endblock %}
+{% block body %}
+    {% include "/includes/inc-body.html" %}
+{% endblock %}
+{% block footer %}
+    {% include "/includes/inc-footer.html" %}
+{% endblock %}
