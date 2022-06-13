@@ -1,6 +1,8 @@
 from jinja2 import FileSystemLoader, Environment
+from decors import log
 
 
+@log
 def render(template_name, folder='templates', static_url='/static/', **kwargs):
     """
     Работа с шаблонизатором jinja2
