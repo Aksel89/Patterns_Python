@@ -1,0 +1,42 @@
+2022-06-13 16:19:08,817 DEBUG decors.py Была вызвана функция render c параметрами ('index.html',), {}. Вызов из модуля framework.template
+2022-06-13 16:51:20,531 DEBUG decors.py Была вызвана функция render c параметрами ('index.html',), {}. Вызов из модуля framework.template
+2022-06-13 16:51:22,042 DEBUG decors.py Была вызвана функция render c параметрами ('about.html',), {}. Вызов из модуля framework.template
+2022-06-13 16:51:23,381 DEBUG decors.py Была вызвана функция render c параметрами ('contacts.html',), {}. Вызов из модуля framework.template
+2022-06-14 01:14:23,790 DEBUG decors.py Была вызвана функция render c параметрами ('index.html',), {}. Вызов из модуля framework.template
+2022-06-14 01:24:17,834 DEBUG decors.py Была вызвана функция render c параметрами ('contacts.html',), {}. Вызов из модуля framework.template
+2022-06-14 01:24:18,498 DEBUG decors.py Была вызвана функция render c параметрами ('about.html',), {}. Вызов из модуля framework.template
+2022-06-14 01:24:18,829 DEBUG decors.py Была вызвана функция render c параметрами ('index.html',), {}. Вызов из модуля framework.template
+2022-06-14 01:24:54,819 DEBUG decors.py Была вызвана функция render c параметрами ('index.html',), {}. Вызов из модуля framework.template
+2022-06-14 01:30:55,970 DEBUG decors.py Была вызвана функция render c параметрами ('index.html',), {}. Вызов из модуля framework.template
+2022-06-14 01:38:43,943 DEBUG decors.py Была вызвана функция __call__ c параметрами (<views.CoursesList object at 0x7fc96b4bfa00>, {'method': 'GET', 'request_params': {}}), {}. Вызов из модуля views
+2022-06-14 01:38:49,221 DEBUG decors.py Была вызвана функция __call__ c параметрами (<views.CreateCourse object at 0x7fc96b4bf8b0>, {'method': 'GET', 'request_params': {}}), {}. Вызов из модуля views
+2022-06-14 01:41:56,047 DEBUG decors.py Была вызвана функция __call__ c параметрами (<views.CoursesList object at 0x7f06cf2a97b0>, {'method': 'GET', 'request_params': {}}), {}. Вызов из модуля views
+2022-06-14 01:41:58,694 DEBUG decors.py Была вызвана функция render c параметрами ('training-programs.html',), {'data': datetime.date(2022, 6, 14)}. Вызов из модуля framework.template
+2022-06-14 01:41:58,694 DEBUG decors.py Была вызвана функция __call__ c параметрами (<views.TrainingPrograms object at 0x7f06cf26b250>, {'method': 'GET', 'request_params': {}}), {}. Вызов из модуля views
+2022-06-14 01:43:32,348 DEBUG decors.py Была вызвана функция __call__ c параметрами (<views.CreateCourse object at 0x7f3211e058a0>, {'method': 'GET', 'request_params': {}}), {}. Вызов из модуля views
+2022-06-14 01:56:10,054 DEBUG decors.py Была вызвана функция render c параметрами ('create-category.html',), {'categories': []}. Вызов из модуля framework.template
+2022-06-14 01:56:10,054 DEBUG decors.py Была вызвана функция __call__ c параметрами (<views.CreateCategory object at 0x7f2cc1b9af50>, {'method': 'GET', 'request_params': {}}), {}. Вызов из модуля views
+2022-06-14 01:56:17,804 DEBUG decors.py Была вызвана функция render c параметрами ('create-category.html',), {'categories': []}. Вызов из модуля framework.template
+2022-06-14 01:56:17,805 DEBUG decors.py Была вызвана функция __call__ c параметрами (<views.CreateCategory object at 0x7f2cc1b9af50>, {'method': 'GET', 'request_params': {}}), {}. Вызов из модуля views
+2022-06-14 01:56:18,780 DEBUG decors.py Была вызвана функция __call__ c параметрами (<views.CreateCourse object at 0x7f2cc1e17850>, {'method': 'GET', 'request_params': {}}), {}. Вызов из модуля views
+2022-06-14 01:56:21,964 DEBUG decors.py Была вызвана функция render c параметрами ('category-list.html',), {'objects_list': []}. Вызов из модуля framework.template
+2022-06-14 01:56:21,964 DEBUG decors.py Была вызвана функция __call__ c параметрами (<views.CategoryList object at 0x7f2cc1b9af80>, {'method': 'GET', 'request_params': {}}), {}. Вызов из модуля views
+2022-06-14 01:56:27,493 DEBUG decors.py Была вызвана функция render c параметрами ('index.html',), {}. Вызов из модуля framework.template
+2022-06-14 01:56:28,724 DEBUG decors.py Была вызвана функция render c параметрами ('training-programs.html',), {'data': datetime.date(2022, 6, 14)}. Вызов из модуля framework.template
+2022-06-14 01:56:28,725 DEBUG decors.py Была вызвана функция __call__ c параметрами (<views.TrainingPrograms object at 0x7f2cc1e17a90>, {'method': 'GET', 'request_params': {}}), {}. Вызов из модуля views
+2022-06-14 01:56:32,067 DEBUG decors.py Была вызвана функция render c параметрами ('contacts.html',), {}. Вызов из модуля framework.template
+2022-06-14 01:56:33,550 DEBUG decors.py Была вызвана функция render c параметрами ('about.html',), {}. Вызов из модуля framework.template
+2022-06-14 01:56:35,746 DEBUG decors.py Была вызвана функция render c параметрами ('index.html',), {}. Вызов из модуля framework.template
+2022-06-14 01:59:24,840 DEBUG decors.py Была вызвана функция __call__ c параметрами (<views.CoursesList object at 0x7f6933c179a0>, {'method': 'GET', 'request_params': {}}), {}. Вызов из модуля views
+2022-06-17 18:12:39,826 DEBUG main.py Нам пришли GET-параметры: {}
+2022-06-17 18:12:39,943 DEBUG main.py Нам пришли GET-параметры: {}
+2022-06-17 18:14:34,700 DEBUG main.py Нам пришли GET-параметры: {}
+2022-06-17 18:14:34,722 DEBUG main.py Нам пришли GET-параметры: {}
+2022-06-17 18:21:33,058 DEBUG main.py Нам пришли GET-параметры: {}
+2022-06-17 18:21:33,100 DEBUG main.py Нам пришли GET-параметры: {}
+2022-06-17 18:24:50,356 DEBUG main.py Нам пришли GET-параметры: {}
+2022-06-17 18:24:51,079 DEBUG main.py Нам пришли GET-параметры: {}
+2022-06-17 18:25:12,796 DEBUG main.py Нам пришли GET-параметры: {}
+2022-06-17 18:25:12,813 DEBUG main.py Нам пришли GET-параметры: {}
+2022-06-17 18:31:11,497 DEBUG main.py Нам пришли GET-параметры: {}
+2022-06-17 18:31:11,515 DEBUG main.py Нам пришли GET-параметры: {}

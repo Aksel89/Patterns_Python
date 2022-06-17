@@ -1,25 +1,31 @@
 from datetime import date
 from logging import getLogger
 
-from decors import log
+from decors import AppRoute, Logger, debug
+from framework.main import DebugApplication
 from framework.template import render
 from patterns.creational_patterns import Engine
 
 
 site = Engine()
-LOGGER = getLogger('main')
+LOGGER = getLogger('framework')
+routes = {}
 
 
+@AppRoute(routes=routes, url='/index/')
 class Index:
+    @debug
     def __call__(self, request):
-        return '200 OK', render('index.html')
+        return '200 OK', render('index.html', objects_list=site.categories)
 
 
+@AppRoute(routes=routes, url='/about/')
 class About:
     def __call__(self, request):
         return '200 OK', render('about.html')
 
 
+@AppRoute(routes=routes, url='/contacts/')
 class Contacts:
     def __call__(self, request):
         if request.get('method') == 'POST':
@@ -39,21 +45,23 @@ class Contacts:
             return '200 OK', render('contacts.html')
 
 
+@AppRoute(routes=routes, url='/training-programs/')
 class TrainingPrograms:
-    @log
+    @debug
     def __call__(self, request):
         return '200 OK', render('training-programs.html', data=date.today())
 
 
 class NotFound404:
-    @log
+    @debug
     def __call__(self, request):
         LOGGER.error(f'Ошибка 404. Страница не найдена')
         return '404 WHAT', '404 PAGE Not Found'
 
 
+@AppRoute(routes=routes, url='/course-list/')
 class CoursesList:
-    @log
+    @debug
     def __call__(self, request):
 
         try:
@@ -69,10 +77,11 @@ class CoursesList:
             return '200 OK', 'No courses have been added yet'
 
 
+@AppRoute(routes=routes, url='/create-course/')
 class CreateCourse:
     category_id = -1
 
-    @log
+    @debug
     def __call__(self, request):
         if request['method'] == 'POST':
 
@@ -108,8 +117,9 @@ class CreateCourse:
                 return '200 OK', 'No categories have been added yet'
 
 
+@AppRoute(routes=routes, url='/create-category/')
 class CreateCategory:
-    @log
+    @debug
     def __call__(self, request):
 
         if request['method'] == 'POST':
@@ -139,8 +149,9 @@ class CreateCategory:
                                     categories=categories)
 
 
+@AppRoute(routes=routes, url='/category-list/')
 class CategoryList:
-    @log
+    @debug
     def __call__(self, request):
         return '200 OK', render('category-list.html',
                                 objects_list=site.categories)
