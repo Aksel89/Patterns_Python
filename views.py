@@ -1,10 +1,12 @@
 from datetime import date
 from logging import getLogger
 
+from patterns.cbv import ListView, CreateView
 from decors import AppRoute, Logger, debug
-from framework.main import DebugApplication
+from framework.main import AppFramework, DebugApplication
 from framework.template import render
 from patterns.creational_patterns import Engine
+from framework.fw_requests import GetRequest
 
 
 site = Engine()
@@ -118,40 +120,57 @@ class CreateCourse:
 
 
 @AppRoute(routes=routes, url='/create-category/')
-class CreateCategory:
-    @debug
-    def __call__(self, request):
+class CreateCategory(CreateView):
+    template_name = 'create-category.html'
 
-        if request['method'] == 'POST':
-
-            print(request)
-            LOGGER.info(f'Запрос {request}')
-            data = request['data']
-
-            name = data['name']
-            name = site.decode_value(name)
-
-            category_id = data.get('category_id')
-
-            category = None
-            if category_id:
-                category = site.find_category_by_id(int(category_id))
-
-            new_category = site.create_category(name, category)
-
-            site.categories.append(new_category)
-
-            return '200 OK', render('index.html',
-                                    objects_list=site.categories)
-        else:
-            categories = site.categories
-            return '200 OK', render('create-category.html',
-                                    categories=categories)
+    def create_obj(self, data: dict):
+        name = data['name']
+        name = site.decode_value(name)
+        new_obj = site.create_category(name)
+        site.categories.append(new_obj)
+        LOGGER.info(f'Добавлена категория {name}')
 
 
 @AppRoute(routes=routes, url='/category-list/')
-class CategoryList:
-    @debug
-    def __call__(self, request):
-        return '200 OK', render('category-list.html',
-                                objects_list=site.categories)
+class CategoryList(ListView):
+    queryset = site.categories
+    template_name = 'category-list.html'
+
+
+@AppRoute(routes=routes, url='/student-list/')
+class StudentList(ListView):
+    queryset = site.students
+    template_name = 'student-list.html'
+
+
+@AppRoute(routes=routes, url='/create-student/')
+class StudentCreate(CreateView):
+    template_name = 'create-student.html'
+
+    def create_obj(self, data: dict):
+        name = data['name']
+        name = site.decode_value(name)
+        new_obj = site.create_user('student', name)
+        site.students.append(new_obj)
+        LOGGER.info(f'Добавлен студент {name}')
+
+
+@AppRoute(routes=routes, url='/add-student/')
+class AddStudentByCourse(CreateView):
+    template_name = 'add-student.html'
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        context['courses'] = site.courses
+        context['students'] = site.students
+        return context
+
+    def create_obj(self, data: dict):
+        course_name = data['course_name']
+        course_name = site.decode_value(course_name)
+        course = site.get_course(course_name)
+        student_name = data['student_name']
+        student_name = site.decode_value(student_name)
+        student = site.get_student(student_name)
+        course.add_student(student)
+        LOGGER.info(f'Студент {student_name} записан на курс {course_name}')

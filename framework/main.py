@@ -1,3 +1,4 @@
+import quopri
 from framework.input_data import DecoderInputData
 from framework.fw_requests import GetRequest, PostRequest, PageNotFound404
 from logs.fw_log import LOGGER
